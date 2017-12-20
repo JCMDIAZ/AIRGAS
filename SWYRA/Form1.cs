@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using FirebirdSql.Data.FirebirdClient;
 using System.Configuration;
 using static SWYRA.General;
 using System.Collections.Generic;
@@ -21,17 +20,20 @@ namespace SWYRA
 
         public MDIPrincipal()
         {
-            string provider = "DataProtectionConfigurationProvider";
-            string strConn = "Data Source=" + ConfigurationManager.AppSettings["sqlServer1"].ToString() + ";Initial Catalog=SWYRA;Persist Security Info=True;User ID=swrya_Cliente;Password=swyra2017";
+                string provider = "DataProtectionConfigurationProvider";
+            string strConn = "Data Source=" + ConfigurationManager.AppSettings["sqlServer1"].ToString() + ";Initial Catalog=AIRGAS;Persist Security Info=True;User ID=swrya_Cliente;Password=swyra2017";
             ConnectionStringSettings setConn = new ConnectionStringSettings("DB", strConn, "System.Data.SqlClient");
 
             Configuration appConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            appConfig.ConnectionStrings.ConnectionStrings.Add(setConn);
-            ConfigurationSection connStrings = appConfig.ConnectionStrings;
+            if (appConfig.ConnectionStrings.ConnectionStrings.Count == 1)
+            {
+                appConfig.ConnectionStrings.ConnectionStrings.Add(setConn);
+                ConfigurationSection connStrings = appConfig.ConnectionStrings;
 
-            connStrings.SectionInformation.ProtectSection(provider);
-            connStrings.SectionInformation.ForceSave = true;
-            appConfig.Save(ConfigurationSaveMode.Full);
+                connStrings.SectionInformation.ProtectSection(provider);
+                connStrings.SectionInformation.ForceSave = true;
+                appConfig.Save(ConfigurationSaveMode.Full);
+            }
 
             try
             {

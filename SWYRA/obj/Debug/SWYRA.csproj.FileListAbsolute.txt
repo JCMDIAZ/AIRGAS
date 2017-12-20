@@ -226,7 +226,6 @@ C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.XtraPrinting.v16.2.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.Firebird.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.SqlServer.dll
-C:\Proyectos\AIRGAS\SWYRA\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\linq2db.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.Pdf.v16.2.Core.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.RichEdit.v16.2.Core.dll
@@ -244,7 +243,6 @@ C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.XtraPrinting.v16.2.xml
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.xml
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.Firebird.pdb
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\EntityFramework.SqlServer.xml
-C:\Proyectos\AIRGAS\SWYRA\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\linq2db.pdb
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.Pdf.v16.2.Core.xml
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\DevExpress.RichEdit.v16.2.Core.xml
@@ -302,7 +300,6 @@ C:\Proyectos\AIRGAS\SWYRA\bin\Debug\de\DevExpress.Office.v16.2.Core.resources.dl
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\es\DevExpress.Office.v16.2.Core.resources.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\ja\DevExpress.Office.v16.2.Core.resources.dll
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\ru\DevExpress.Office.v16.2.Core.resources.dll
-C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.csprojResolveAssemblyReference.cache
 C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.MDIPrincipal.resources
 C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.FrmActivacion.resources
 C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.FrmAreas.resources

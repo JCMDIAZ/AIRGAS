@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using LinqToDB.SqlQuery;
-using System.Management;
+using LinqToDB.SqlQuery;using System.Management;
 using System.IO;
-using FirebirdSql.Data.FirebirdClient;
 
 namespace SWYRA
 {
@@ -48,52 +46,7 @@ namespace SWYRA
             }
         }
 
-        public static FbConnection GetFbConnection(string database)
-        {
-            try
-            {
-                var config = ConfigurationManager.ConnectionStrings[database];
-                var connString = config.ConnectionString;
-                //TODO: connString = Helper.Crypto.Decrypt(connString);
-                var cn = new FbConnection(connString);
-                for (var retry = 0; retry < 3; retry++)
-                {
-                    try
-                    {
-                        cn.Open();
-                        break;
-                    }
-                    catch (Exception ex)
-                    {
-                        //TODO: Log error
-                    }
-                }
-                return cn;
-            }
-            catch (NullReferenceException)
-            {
-                throw new ApplicationException(string.Format("Base de Datos '{0}' indefinido.", database));
-            }
-            catch (FormatException)
-            {
-                throw new ApplicationException(string.Format("Error en la definición de la base de datos '{0}'.", database));
-            }
-            catch
-            {
-                throw new ApplicationException(string.Format("No se pudo conectar a la base de datos '{0}'.", database));
-            }
-        }
-
         public static void CloseConnection(SqlConnection sql)
-        {
-            try
-            {
-                sql.Close();
-            }
-            catch { }
-        }
-
-        public static void CloseFbConnection(FbConnection sql)
         {
             try
             {
@@ -119,23 +72,6 @@ namespace SWYRA
             return dt;
         }
 
-        public static DataTable GetFbDataTable(string db, string query, int idError)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                var sqlCon = GetFbConnection(db);
-                var sqlAdt = new FbDataAdapter(query, sqlCon);
-                sqlAdt.Fill(dt);
-                CloseFbConnection(sqlCon);
-            }
-            catch (Exception e)
-            {
-                throw new ApplicationException(string.Format("Error {0}: {1}", idError.ToString(), e.Message.ToString()));
-            }
-            return dt;
-        }
-
         public static bool GetExecute(string db, string query, int idError)
         {
             bool b = false;
@@ -146,24 +82,6 @@ namespace SWYRA
                 sqlCmd.ExecuteNonQuery();
                 b = true;
                 CloseConnection(sqlCon);
-            }
-            catch (Exception e)
-            {
-                throw new ApplicationException(string.Format("Error {0}: {1}", idError.ToString(), e.Message.ToString()));
-            }
-            return b;
-        }
-
-        public static bool GetFbExecute(string db, string query, int idError)
-        {
-            bool b = false;
-            try
-            {
-                var sqlCon = GetFbConnection(db);
-                var sqlCmd = new FbCommand(query, sqlCon);
-                sqlCmd.ExecuteNonQuery();
-                b = true;
-                CloseFbConnection(sqlCon);
             }
             catch (Exception e)
             {
