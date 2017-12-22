@@ -35,7 +35,7 @@ namespace SWYRA
         public static string ToStrSql(this DateTime d)
         {
             string str = "null";
-            str = (d.Year != 1) ? "'" + d.ToString("yyyy-MM-dd HH:mm:ss") + "'" : "Null";
+            str = (d.Year != 1) ? "CONVERT(datetime, '" + d.ToString("dd-MM-yyyy HH:mm:ss") + "', 105)" : "Null";
             return str;
         }
 
@@ -47,7 +47,7 @@ namespace SWYRA
             {
                 r = (DateTime) d;
             }
-            str = (d != null) ? "'" + r.ToString("yyyy-MM-dd HH:mm:ss") + "'" : "Null";
+            str = (d != null) ? "CONVERT(datetime, '" + r.ToString("dd-MM-yyyy HH:mm:ss") + "', 105)" : "Null";
             return str;
         }
 

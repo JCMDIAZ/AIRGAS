@@ -32,9 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDeptos));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
-            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.chkActivo = new DevExpress.XtraEditors.CheckEdit();
             this.txtOffset = new DevExpress.XtraEditors.TextEdit();
@@ -56,6 +53,8 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.dgAlmacen = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new DevExpress.XtraEditors.TextEdit();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.claveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.abreviaturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +64,9 @@
             this.offsetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.alamcenBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBuscar = new DevExpress.XtraEditors.TextEdit();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
+            this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
+            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkActivo.Properties)).BeginInit();
@@ -78,8 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlmacen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alamcenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuscar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alamcenBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -94,36 +94,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(551, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::SWYRA.Properties.Resources.save;
-            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(93, 24);
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Image = global::SWYRA.Properties.Resources._1366681822_edit_clear;
-            this.btnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(87, 24);
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Image = global::SWYRA.Properties.Resources.Logout_32x32;
-            this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(61, 24);
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // GroupBox1
             // 
@@ -153,7 +123,7 @@
             this.GroupBox1.Size = new System.Drawing.Size(525, 149);
             this.GroupBox1.TabIndex = 11;
             this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Almacenes";
+            this.GroupBox1.Text = "Almacen";
             // 
             // chkActivo
             // 
@@ -420,6 +390,25 @@
             this.dgAlmacen.TabIndex = 30;
             this.dgAlmacen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAlmacen_CellClick);
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(255, 191);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Properties.Appearance.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtBuscar.Properties.Appearance.Options.UseFont = true;
+            this.txtBuscar.Properties.Appearance.Options.UseForeColor = true;
+            this.txtBuscar.Properties.MaxLength = 50;
+            this.txtBuscar.Size = new System.Drawing.Size(191, 24);
+            this.txtBuscar.TabIndex = 38;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(551, 456);
+            this.panel1.TabIndex = 39;
+            // 
             // claveDataGridViewTextBoxColumn
             // 
             this.claveDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -497,24 +486,35 @@
             // 
             this.alamcenBindingSource.DataSource = typeof(SWYRA.Almacen);
             // 
-            // txtBuscar
+            // btnGuardar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(255, 191);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Properties.Appearance.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtBuscar.Properties.Appearance.Options.UseFont = true;
-            this.txtBuscar.Properties.Appearance.Options.UseForeColor = true;
-            this.txtBuscar.Properties.MaxLength = 50;
-            this.txtBuscar.Size = new System.Drawing.Size(191, 24);
-            this.txtBuscar.TabIndex = 38;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::SWYRA.Properties.Resources.save;
+            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(93, 24);
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // panel1
+            // btnLimpiar
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(551, 456);
-            this.panel1.TabIndex = 39;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Image = global::SWYRA.Properties.Resources._1366681822_edit_clear;
+            this.btnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(87, 24);
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Image = global::SWYRA.Properties.Resources.Logout_32x32;
+            this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(61, 24);
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmDeptos
             // 
@@ -549,8 +549,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDescripcion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlmacen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alamcenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBuscar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alamcenBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

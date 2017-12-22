@@ -341,7 +341,8 @@ namespace SWYRA
             txtLetra.Text = (cbCategoria.Text != @"COBRADOR") ? "" : txtLetra.Text;
             txtLetra.Enabled = (cbCategoria.Text == @"COBRADOR");
 
-            cbArea.EditValue = null;cbArea.Enabled = (cbCategoria.Text == @"SURTIDOR" || cbCategoria.Text == @"EMPAQUETADOR");
+            cbArea.EditValue = null;
+            cbArea.Enabled = (cbCategoria.Text == @"SURTIDOR" || cbCategoria.Text == @"EMPAQUETADOR");
         }
 
         private void ViewModulo()

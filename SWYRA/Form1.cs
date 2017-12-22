@@ -160,5 +160,12 @@ namespace SWYRA
             userActivo.Password = fCamCon.Txtcpass.Text;
             fCamCon.Close();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fProductos = new FrmProductos();
+            fProductos.ShowDialog();
+            fProductos.Close();
+        }
     }
 }

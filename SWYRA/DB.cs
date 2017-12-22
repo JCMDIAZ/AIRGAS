@@ -35,20 +35,21 @@ namespace SWYRA
 
     public class Inventario
     {
-        public string cve_art { get; set; }
-        public string descr { get; set; }
+        public string cvealm { get; set; }
+        public string cvearea { get; set; }
+        public string cveart { get; set; }
         public string lin_prod { get; set; }
         public string con_serie { get; set; }
         public string uni_med { get; set; }
         public double uni_emp { get; set; }
-        public string ctrl_alm { get; set; }
         public double stock_min { get; set; }
         public double stock_max { get; set; }
-        public DateTime fch_ultvta { get; set; }
         public double exist { get; set; }
         public string status { get; set; }
         public double masters { get; set; }
-        public string masters_ubi { get; set; }
+        public string ubicacion { get; set; }
+        public DateTime fchmovimiento { get; set; }
+
     }
 
     public class Pedidos
@@ -253,5 +254,45 @@ namespace SWYRA
         public double ult_compm { get; set; }
         public DateTime fch_ultcom { get; set; }
         public string clasific { get; set; }
+    }
+
+    public class Productos
+    {
+        public string cveart { get; set; }
+        public bool peps { get; set; }
+        public string descripcion { get; set; }
+        public string nombrecorto { get; set; }
+        public bool manejaporlotes { get; set; }
+        public string cveproveedor { get; set; }
+        public string familia { get; set; }
+        public string unidadmedida { get; set; }
+        public DateTime fechaalta { get; set; }
+        public bool baja { get; set; }
+        public DateTime? fechabaja { get; set; }
+        public decimal preciocompra { get; set; }
+        public decimal precioventa { get; set; }
+        public decimal iva { get; set; }
+        public bool incluyeiva { get; set; }
+        public decimal ieps { get; set; }
+        public bool incluyeieps { get; set; }
+        public decimal maximocompra { get; set; }
+        public string codigobarra { get; set; }
+        public string marca { get; set; }
+        public string numerodeparte { get; set; }
+        public bool limpieza { get; set; }
+        public string material { get; set; }
+        public bool activo { get; set; }
+        public string strproveedor { get; set; }
+        public string strfamilia { get; set; }
+        public string strunidadmedida { get; set; }
+    }
+
+    public class Catalogos
+    {
+        public string tipocatalogo { get; set; }
+        public string clave { get; set; }
+        public string nombre { get; set; }
+        public string abreviatura { get; set; }
+        public bool activo { get; set; }
     }
 }
