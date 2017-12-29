@@ -50,7 +50,8 @@ namespace SWYRA
             List<Areas> listAreas = new List<Areas>();
             try
             {
-                var query = "SELECT AREAID, NOMBRE, DESCRIPCION, ALMACEN, UBICACION, AREAM2, ALTURA, ACTIVO FROM AREAS";
+                var query = "SELECT AREAID, r.NOMBRE, DESCRIPCION, ALMACEN, UBICACION, AREAM2, r.ALTURA, r.ACTIVO, a.NOMBRE stralmacen " +
+                            "FROM AREAS r JOIN ALMACENES a ON a.CLAVE = r.ALMACEN";
                 listAreas = GetDataTable("DB", query, 32).ToList<Areas>();
             }
             catch (Exception ex)
@@ -94,7 +95,7 @@ namespace SWYRA
             Areas area = CargaAreas().Where(o => o.areaid == areaID.ToString()).First();
 
             txtCodigo.Text = area.areaid;
-            cbAlmacen.Text = area.almacen;
+            cbAlmacen.EditValue = area.almacen;
             txtNombre.Text = area.nombre;
             txtUbicacion.Text = area.ubicacion;
             txtArea.Text = area.aream2.ToString();

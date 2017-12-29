@@ -316,3 +316,4 @@ C:\Proyectos\AIRGAS\SWYRA\bin\Debug\ja\DevExpress.Office.v16.2.Core.resources.dl
 C:\Proyectos\AIRGAS\SWYRA\bin\Debug\ru\DevExpress.Office.v16.2.Core.resources.dll
 C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.exe
 C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.pdb
+C:\Proyectos\AIRGAS\SWYRA\obj\Debug\SWYRA.FrmInventario.resources

@@ -167,5 +167,12 @@ namespace SWYRA
             fProductos.ShowDialog();
             fProductos.Close();
         }
+
+        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fInventario = new FrmInventario();
+            fInventario.ShowDialog();
+            fInventario.Close();
+        }
     }
 }

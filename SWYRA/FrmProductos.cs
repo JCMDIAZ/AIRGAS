@@ -15,6 +15,7 @@ namespace SWYRA
     {
         List<Catalogos> listCatalogo = new List<Catalogos>();
         List<Productos> listProductos = new List<Productos>();
+        private bool sw = true;
 
         public FrmProductos()
         {
@@ -33,6 +34,7 @@ namespace SWYRA
 
         private void Limpiar()
         {
+            sw = false;
             txtClaveProducto.Text = "";
             txtCodigoBarra.Text = "";
             deFechaAlta.DateTime = DateTime.Today;
@@ -59,6 +61,8 @@ namespace SWYRA
             txtMaterial.Text = "";
             chkLimpieza.Checked = false;
             chkActivo.Checked = false;
+            GroupBox1.Enabled = (deFechaBaja.DateTime == DateTime.Today || !chkBaja.Checked);
+            sw = true;
         }
 
         private void FrmProductos_Load(object sender, EventArgs e)
@@ -108,24 +112,33 @@ namespace SWYRA
 
         private void chkBaja_CheckedChanged(object sender, EventArgs e)
         {
-            if (deFechaBaja.Text == "" || (deFechaBaja.DateTime == DateTime.Today))
+            if (sw)
             {
-                deFechaBaja.EditValue = (chkBaja.Checked) ? DateTime.Today : (DateTime?) null;
-                chkActivo.Checked = !chkBaja.Checked;
-                chkActivo.Enabled = !chkBaja.Checked;
+                if (deFechaBaja.Text == "" || (deFechaBaja.DateTime == DateTime.Today))
+                {
+                    deFechaBaja.EditValue = (chkBaja.Checked) ? DateTime.Today : (DateTime?) null;
+                    chkActivo.Checked = !chkBaja.Checked;
+                    chkActivo.Enabled = !chkBaja.Checked;
+                }
             }
         }
 
         private void chkIVA_CheckedChanged(object sender, EventArgs e)
         {
-            seIVA.EditValue = (chkIVA.Checked) ? 16 : 0;
-            seIVA.Enabled = chkIVA.Checked;
+            if (sw)
+            {
+                seIVA.EditValue = (chkIVA.Checked) ? 16 : 0;
+                seIVA.Enabled = chkIVA.Checked;
+            }
         }
 
         private void chkIEPS_CheckedChanged(object sender, EventArgs e)
         {
-            seIEPS.EditValue = (chkIEPS.Checked) ? 3 : 0;
-            seIEPS.Enabled = chkIEPS.Checked;
+            if (sw)
+            {
+                seIEPS.EditValue = (chkIEPS.Checked) ? 3 : 0;
+                seIEPS.Enabled = chkIEPS.Checked;
+            }
         }
 
         private void GetGridProducto()
@@ -143,6 +156,7 @@ namespace SWYRA
 
         private void CargaDatos(string productoID)
         {
+            sw = false;
             var prod = listProductos.First(o => o.cveart == productoID);
             txtClaveProducto.Text = prod.cveart;
             txtCodigoBarra.Text = prod.codigobarra;
@@ -170,6 +184,8 @@ namespace SWYRA
             txtMaterial.Text = prod.material;
             chkLimpieza.Checked = prod.limpieza;
             chkActivo.Checked = prod.activo;
+            GroupBox1.Enabled = (deFechaBaja.DateTime == DateTime.Today || !chkBaja.Checked);
+            sw = true;
         }
 
         class Variables
@@ -205,8 +221,8 @@ namespace SWYRA
                         query =
                             @"UPDATE PRODUCTOS SET PEPS = " + ((chkPEPS.Checked) ? "1" : "0") + ", DESCRIPCION = '" +
                             txtDescripcion.Text + "', NOMBRECORTO = '" + txtNombreCorto.Text + "', MANEJAPORLOTES = " +
-                            ((chkManejaPorLotes.Checked) ? "1" : "0") + ", FAMILIA = '" + cbFamilia.GetColumnValue("Clave") + "', UNIDADMEDIDA = '" +
-                            cbUnidadMedida.GetColumnValue("Clave") + "', FECHAALTA = " + deFechaAlta.DateTime.ToStrSql() + ", BAJA = " +
+                            ((chkManejaPorLotes.Checked) ? "1" : "0") + ", FAMILIA = '" + cbFamilia.GetColumnValue("clave") + "', UNIDADMEDIDA = '" +
+                            cbUnidadMedida.GetColumnValue("clave") + "', FECHAALTA = " + deFechaAlta.DateTime.ToStrSql() + ", BAJA = " +
                             ((chkBaja.Checked) ? "1" : "0") + ", FECHABAJA = " + deFechaBaja.DateTime.ToStrSql() + ", PRECIOCOMPRA = " +
                             sePrecioCompra.Value + ", PRECIOVENTA = " + sePrecioVenta.Value + ", IVA = " + seIVA.Value + ", INCLUYEIVA = " +
                             ((chkIVA.Checked) ? "1" : "0") + ", IEPS = " + seIEPS.Value + ", INCLUYEIEPS = " + ((chkIEPS.Checked) ? "1" : "0") +

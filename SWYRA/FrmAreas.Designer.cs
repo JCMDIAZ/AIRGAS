@@ -274,7 +274,7 @@
             this.cbAlmacen.Properties.DisplayMember = "Nombre";
             this.cbAlmacen.Properties.NullText = "";
             this.cbAlmacen.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.cbAlmacen.Properties.ValueMember = "Nombre";
+            this.cbAlmacen.Properties.ValueMember = "Clave";
             this.cbAlmacen.Size = new System.Drawing.Size(171, 24);
             this.cbAlmacen.TabIndex = 44;
             // 
@@ -443,7 +443,7 @@
             // colalmacen
             // 
             this.colalmacen.Caption = "Almacen";
-            this.colalmacen.FieldName = "almacen";
+            this.colalmacen.FieldName = "stralmacen";
             this.colalmacen.Name = "colalmacen";
             this.colalmacen.Visible = true;
             this.colalmacen.VisibleIndex = 3;

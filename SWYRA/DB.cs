@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
@@ -35,21 +36,25 @@ namespace SWYRA
 
     public class Inventario
     {
+        public Int64 id { get; set; }
         public string cvealm { get; set; }
         public string cvearea { get; set; }
         public string cveart { get; set; }
         public string lin_prod { get; set; }
         public string con_serie { get; set; }
         public string uni_med { get; set; }
-        public double uni_emp { get; set; }
-        public double stock_min { get; set; }
-        public double stock_max { get; set; }
-        public double exist { get; set; }
-        public string status { get; set; }
-        public double masters { get; set; }
+        public decimal uni_emp { get; set; }
+        public decimal stock_min { get; set; }
+        public decimal stock_max { get; set; }
+        public decimal exist { get; set; }
+        public decimal masters { get; set; }
         public string ubicacion { get; set; }
         public DateTime fchmovimiento { get; set; }
-
+        public bool activo { get; set;}
+        public string strAlmacen { get; set; }
+        public string strArea { get; set; }
+        public string strProducto { get; set; }
+        public string strUniMed { get; set; }
     }
 
     public class Pedidos
@@ -218,8 +223,8 @@ namespace SWYRA
         public decimal aream2 { get; set; }
         public decimal altura { get; set; }
         public bool activo { get; set; }
-
-    }
+        public string stralmacen { get; set; }
+    } 
 
     public class Cliente
     {
