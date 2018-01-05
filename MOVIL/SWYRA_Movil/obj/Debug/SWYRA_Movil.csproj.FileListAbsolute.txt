@@ -1,0 +1,12 @@
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\ResolveAssemblyReference.cache
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.Form1.resources
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.Properties.Resources.resources
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.csproj.GenerateResource.Cache
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\bin\Debug\SWYRA_Movil.exe
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\bin\Debug\SWYRA_Movil.pdb
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.exe
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.pdb
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\bin\Debug\System.Data.SqlClient.dll
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\bin\Debug\System.Data.SqlServerCe.dll
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\bin\Debug\SWYRA.sdf
+C:\Proyectos\AIRGAS\MOVIL\SWYRA_Movil\obj\Debug\SWYRA_Movil.FrmActivacion.resources

@@ -20,7 +20,7 @@ namespace SWYRA
 
         public MDIPrincipal()
         {
-                string provider = "DataProtectionConfigurationProvider";
+            string provider = "DataProtectionConfigurationProvider";
             string strConn = "Data Source=" + ConfigurationManager.AppSettings["sqlServer1"].ToString() + ";Initial Catalog=AIRGAS;Persist Security Info=True;User ID=swrya_Cliente;Password=swyra2017";
             ConnectionStringSettings setConn = new ConnectionStringSettings("DB", strConn, "System.Data.SqlClient");
 
