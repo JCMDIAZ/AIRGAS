@@ -35,7 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLlave = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnActivar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,18 +73,21 @@
             this.txtClave.Location = new System.Drawing.Point(3, 73);
             this.txtClave.Multiline = true;
             this.txtClave.Name = "txtClave";
+            this.txtClave.ReadOnly = true;
             this.txtClave.Size = new System.Drawing.Size(232, 40);
             this.txtClave.TabIndex = 3;
             // 
-            // textBox1
+            // txtLlave
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textBox1.Location = new System.Drawing.Point(3, 136);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(232, 55);
-            this.textBox1.TabIndex = 5;
+            this.txtLlave.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtLlave.Location = new System.Drawing.Point(3, 136);
+            this.txtLlave.Multiline = true;
+            this.txtLlave.Name = "txtLlave";
+            this.txtLlave.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLlave.Size = new System.Drawing.Size(232, 55);
+            this.txtLlave.TabIndex = 5;
+            this.txtLlave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLlave_KeyPress);
+            this.txtLlave.LostFocus += new System.EventHandler(this.txtLlave_LostFocus);
             // 
             // label2
             // 
@@ -96,12 +99,14 @@
             // btnActivar
             // 
             this.btnActivar.BackColor = System.Drawing.Color.Maroon;
+            this.btnActivar.Enabled = false;
             this.btnActivar.ForeColor = System.Drawing.Color.White;
             this.btnActivar.Location = new System.Drawing.Point(3, 230);
             this.btnActivar.Name = "btnActivar";
             this.btnActivar.Size = new System.Drawing.Size(93, 31);
             this.btnActivar.TabIndex = 7;
             this.btnActivar.Text = "Activar";
+            this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
             // 
             // label3
             // 
@@ -123,7 +128,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnActivar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLlave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.label1);
@@ -145,7 +150,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLlave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnActivar;
         private System.Windows.Forms.Label label3;

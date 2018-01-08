@@ -9,6 +9,7 @@ using System.Data.SqlServerCe;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using System.Globalization;
 
 namespace SWYRA_Movil
 {
@@ -39,13 +40,62 @@ namespace SWYRA_Movil
                 }
                 else
                 {
-                    Application.Run(new Form1());
+                    if (validaActivacion(dv.Activo))
+                    {
+                        Application.Run(new Form1());
+                    }
+                    else
+                    {
+                        Application.Run(new FrmActivacion());
+                    }
                 }
             }
             catch (Exception ms)
             {
                 MessageBox.Show(ms.Message, "ERROR DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
             }
+        }
+
+        private static bool validaActivacion(bool act)
+        {
+            bool b = false;
+            try
+            {
+                if (act)
+                {
+                    var pass = GetDeviceID(true);
+                    var query = "SELECT [ID_RegMach] IdRegMach, cast(DECRYPTBYPASSPHRASE('swyra',[Macmach_RegMach]) as varchar(8000)) MacmachRegMach, " +
+                                "[Fecha_RegMach] FechaRegMach, [Activo_RegMach] ActivoRegMach FROM[dbo].[Cat_RegMach] " +
+                                "where cast(DECRYPTBYPASSPHRASE('swyra',[Macmach_RegMach]) as varchar(8000)) like '%" + pass + "%' " +
+                                "and Activo_RegMach = 1";
+                    List<CatRegMach> catRegMaches = GetDataTable(query, 1).ToList<CatRegMach>();
+                    b = (catRegMaches.Count > 0);
+                    if (b)
+                    {
+                        var reg = catRegMaches.FirstOrDefault();
+                        var str = reg.MacmachRegMach.Split('|');
+                        if (str.Length > 1)
+                        {
+                            var fch = DateTime.ParseExact(str[1], "yyyyMMdd", CultureInfo.InvariantCulture);
+                            b = (DateTime.Now < fch);
+                            if (!b)
+                            {
+                                MessageBox.Show(@"Se agoto el tiempo de prueba. Consulta a tu Ejecutivo de Ventas VISIONTEC", "ERROR DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"Se agoto el tiempo de prueba. Consulta a tu Ejecutivo de Ventas VISIONTEC", "ERROR DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                }
+            }
+            catch (Exception ms)
+            {
+                MessageBox.Show(ms.Message.ToString());
+                b = false;
+            }
+            return b;
         }
 
         public static SqlConnection GetConnection()
@@ -193,7 +243,7 @@ namespace SWYRA_Movil
             return dt;
         }
 
-        public static bool GetExecute(string db, string query, int idError)
+        public static bool GetExecute(string query, int idError)
         {
             bool b = false;
             try
@@ -211,7 +261,7 @@ namespace SWYRA_Movil
             return b;
         }
 
-        public static bool GetCeExecute(string db, string query, int idError)
+        public static bool GetCeExecute(string query, int idError)
         {
             bool b = false;
             try
