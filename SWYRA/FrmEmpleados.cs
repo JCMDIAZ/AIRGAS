@@ -34,7 +34,8 @@ namespace SWYRA
             listAlmacen = CargaAlmacenes();
             lstAlmacen.DataSource = listAlmacen;
             listAreas = CargaAreas();
-            gcUsuarios.DataSource = CargaEmpleados();GetGridEmpleados();
+            gcUsuarios.DataSource = CargaEmpleados();
+            GetGridEmpleados();
         }
 
         private void GetGridEmpleados()
