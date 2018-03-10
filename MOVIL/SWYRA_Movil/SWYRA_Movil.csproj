@@ -78,12 +78,6 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="PictureButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PictureButton.Designer.cs">
-      <DependentUpon>PictureButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
